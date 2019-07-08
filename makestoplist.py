@@ -9,7 +9,7 @@ def tokenizeUsingSpaces(documentText):
 	return tokenizedWords
 
 name  = input("Enter form name: ")
-fName = input("Enter file name: ")
+fName = input("Enter file path: ")
 
 im_gray = cv2.imread(fName, 0)
 (thresh, im_bw) = cv2.threshold(im_gray, 120, 255, cv2.THRESH_BINARY)
