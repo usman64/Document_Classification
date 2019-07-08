@@ -13,26 +13,6 @@ def tokenizeUsingSpaces(documentText):
 	tokenizedWords = re.findall(pattern,alltext)
 	return tokenizedWords
 
-def resize(originalImage, x, y, interpolation):
-	original = cv2.resize(original, None, fx=x, fy=y, interpolation=cv2.INTER_CUBIC)
-
-def filterUsingNltkStopWords(documentWords):
-	stopWords = set(stopwords.words('english'))
-	wordsFiltered = []
-	for w in documentWords:
-	    if w not in stopWords and len(w)>3:
-	        wordsFiltered.append(w)
-	return wordsFiltered
-
-def addNewStopWord(NewWord, CurrentWordsList, docType):
-	textFile = docType + '.txt'
-	if (new_word not in CurrentWordsList):
-		file = open("textFile", "a")
-		temp = new_word + "\t"
-		file.write(temp)
-		file.close()
-	return CurrentWordsList.append(new_word)
-
 def getStopWords(docType):
 	textFile = docType + '.txt'
 	stopwords = []
@@ -49,16 +29,15 @@ def storeKeyDict(dictFile, imageName, wordList):
 	for word in wordList:
 		file.write(word + "\t")
 	file.close()
-# os.system("tesseract fat3.jpg stdout -l eng --psm 12 > x.txt")
+
 imageName = input("Enter File Name: ")
 docType = input("Enter Document Type: ")
 
-original = cv2.imread(imageName,0)
-# ret,original = cv2.threshold(original,127,255,cv2.THRESH_BINARY)
-original = cv2.GaussianBlur(original,(5,5),0)
-ret2,original = cv2.threshold(original,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+im_gray = cv2.imread(imageName, 0)
+(thresh, im_bw) = cv2.threshold(im_gray, 120, 255, cv2.THRESH_BINARY)
+ret2,im_binary = cv2.threshold(im_gray, thresh, 255, cv2.THRESH_BINARY)
+alltext = pytesseract.image_to_string(im_binary,config= '--psm 12')
 
-alltext = pytesseract.image_to_string(original,config='-psm 12')
 alltext= alltext.lower()
 tokenizedWords=tokenizeUsingSpaces(alltext)
 stoplist = getStopWords(docType)
@@ -68,13 +47,7 @@ for w in tokenizedWords:
         wordsFiltered.append(w)
 
 df = pd.DataFrame(wordsFiltered)
-
 df = df.reset_index()
 df = df[0].value_counts().to_frame().reset_index()
 df.rename(columns={0:'Count'},inplace=True)
 print(df)
-# wordsOccuringThriceAndLess = df.drop(df[df.Count>3].index)
-# print(wordsOccuringThriceAndLess)
-# with pd.option_context('display.max_rows',None,'display.max_columns',None):
-# 	print(df)
-
