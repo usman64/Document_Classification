@@ -41,8 +41,13 @@ def main():
     gray = cv.bitwise_not(gray)
     bw = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, \
                                 cv.THRESH_BINARY, 15, -2)
+
+    (thresh, im_bw) = cv.threshold(gray, 75, 255, cv.THRESH_OTSU)
+    ret2,binw = cv.threshold(gray, thresh, 255, cv.THRESH_BINARY)
+
     # Show binary image
-    # cv.imshow("binary", bw)
+    # wb = cv.bitwise_not(bw)
+    cv.imshow("binary", bw)
     # [bin]
 
     # [init]
@@ -64,7 +69,7 @@ def main():
     horizontal = cv.dilate(horizontal, horizontalStructure)
     b_hor = horizontal
     # Show extracted horizontal lines
-    # cv.imshow("horizontal", horizontal)
+    cv.imshow("horizontal", horizontal)
     horizontal = cv.bitwise_not(horizontal)
 
     # [horiz]
@@ -83,7 +88,7 @@ def main():
 
     # Show extracted vertical lines
     # show_wait_destroy("vertical", vertical)
-    # cv.imshow("vertical", vertical)
+    cv.imshow("vertical", vertical)
     b_vert = vertical
 
     # [vert]
@@ -91,7 +96,7 @@ def main():
     # [smooth]
     # Inverse vertical image
     vertical = cv.bitwise_not(vertical)
-    # cv.imshow("vertical_bit", vertical)
+    cv.imshow("vertical_bit", vertical)
 
     '''
     Extract edges and smooth image according to the logic
@@ -105,14 +110,14 @@ def main():
     # Step 1
     edges = cv.adaptiveThreshold(vertical, 255, cv.ADAPTIVE_THRESH_MEAN_C, \
                                 cv.THRESH_BINARY, 3, -2)
-    # cv.imshow("edges", edges)
+    cv.imshow("edges", edges)
     edges2 = cv.adaptiveThreshold(horizontal, 255, cv.ADAPTIVE_THRESH_MEAN_C, \
                                 cv.THRESH_BINARY, 3, -2)
     # Step 2
     kernel = np.ones((2, 2), np.uint8)
     edges = cv.dilate(edges, kernel)
     edges2 = cv.dilate(edges2, kernel)
-    # cv.imshow("dilate", edges)
+    cv.imshow("dilate", edges)
 
     # Step 3
     smooth = np.copy(vertical)
@@ -129,7 +134,7 @@ def main():
     (rows2, cols2) = np.where(edges2 != 0)
     horizontal[rows2, cols2] = smooth2[rows2, cols2]
     # Show final result
-    # cv.imshow("smooth - final", vertical)
+    cv.imshow("smooth - final", vertical)
     # [smooth]
 
     cv.imwrite('test_image_lines.jpg',vertical)
@@ -139,7 +144,7 @@ def main():
     # img3 = img1 + vertical
     # img3 = img1 - vertical
     # img3 = vertical + img1
-    img3 = bw - b_vert - edges - edges2 - b_hor
+    img3 = binw - b_vert - edges - edges2 - b_hor
     img3 = cv.bitwise_not(img3)
     cv.imshow("minused", img3)
     # img3 = bw - b_vert - edges
