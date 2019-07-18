@@ -3,12 +3,12 @@ import sys
 import cv2 as cv
 
 
-def show_wait_destroy(winname, img):
-    cv.imshow(winname, img)
-    cv.moveWindow(winname, 0,0)
-    cv.resizeWindow(winname, 600,600 )
-    cv.waitKey(0)
-    cv.destroyWindow(winname)
+# def show_wait_destroy(winname, img):
+#     cv.imshow(winname, img)
+#     cv.moveWindow(winname, 0,0)
+#     cv.resizeWindow(winname, 600,600 )
+#     cv.waitKey(0)
+#     cv.destroyWindow(winname)
 
 
 def main():
@@ -17,11 +17,7 @@ def main():
     path = input("Input path of image: ")
     src = cv.imread(path, cv.IMREAD_COLOR)
 
-    # Show source image
-    # cv.imshow("src", src)
-    # [load_image]
 
-    # [gray]
     # Transform source image to gray if it is not already
     if len(src.shape) != 2:
         gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
@@ -45,9 +41,10 @@ def main():
     (thresh, im_bw) = cv.threshold(gray, 75, 255, cv.THRESH_OTSU)
     ret2,binw = cv.threshold(gray, thresh, 255, cv.THRESH_BINARY)
 
+
     # Show binary image
     # wb = cv.bitwise_not(bw)
-    cv.imshow("binary", bw)
+    # cv.imshow("binary", bw)
     # [bin]
 
     # [init]
@@ -65,8 +62,9 @@ def main():
     horizontalStructure = cv.getStructuringElement(cv.MORPH_RECT, (horizontal_size, 1))
 
     # Apply morphology operations
-    horizontal = cv.erode(horizontal, horizontalStructure)
-    horizontal = cv.dilate(horizontal, horizontalStructure)
+    # horizontal = cv.erode(horizontal, horizontalStructure)
+    # horizontal = cv.dilate(horizontal, horizontalStructure)
+    horizontal = cv.morphologyEx(horizontal, cv.MORPH_OPEN, horizontalStructure)
     b_hor = horizontal
     # Show extracted horizontal lines
     cv.imshow("horizontal", horizontal)
@@ -80,12 +78,12 @@ def main():
     verticalsize = rows // 30
 
     # Create structure element for extracting vertical lines through morphology operations
-    verticalStructure = cv.getStructuringElement(cv.MORPH_RECT, (1, verticalsize))
+    verticalStructure = cv.getStructuringElement(cv.MORPH_RECT, (1,verticalsize))
 
     # Apply morphology operations
-    vertical = cv.erode(vertical, verticalStructure)
-    vertical = cv.dilate(vertical, verticalStructure)
-
+    # vertical = cv.erode(vertical, verticalStructure)
+    # vertical = cv.dilate(vertical, verticalStructure)
+    vertical = cv.morphologyEx(vertical,cv.MORPH_OPEN,verticalStructure)
     # Show extracted vertical lines
     # show_wait_destroy("vertical", vertical)
     cv.imshow("vertical", vertical)
@@ -114,10 +112,11 @@ def main():
     edges2 = cv.adaptiveThreshold(horizontal, 255, cv.ADAPTIVE_THRESH_MEAN_C, \
                                 cv.THRESH_BINARY, 3, -2)
     # Step 2
-    kernel = np.ones((2, 2), np.uint8)
-    edges = cv.dilate(edges, kernel)
-    edges2 = cv.dilate(edges2, kernel)
-    cv.imshow("dilate", edges)
+    # kernel = np.ones((2, 2), np.uint8)
+    # edges = cv.dilate(edges, kernel)
+    # edges2 = cv.dilate(edges2, kernel)
+    # cv.imshow("edges", edges)
+    # cv.imshow("edges2",edges2)
 
     # Step 3
     smooth = np.copy(vertical)
@@ -134,22 +133,23 @@ def main():
     (rows2, cols2) = np.where(edges2 != 0)
     horizontal[rows2, cols2] = smooth2[rows2, cols2]
     # Show final result
-    cv.imshow("smooth - final", vertical)
-    # [smooth]
+    # cv.imshow("smooth - final", vertical)/
 
-    cv.imwrite('test_image_lines.jpg',vertical)
     img1 = cv.imread(path, 0)
-    img2 = cv.imread('test_image_lines.jpg', 0)
+    # img2 = cv.imread('test_image_lines.jpg', 0)
     # img3 = b_vert - 50
     # img3 = img1 + vertical
     # img3 = img1 - vertical
     # img3 = vertical + img1
     img3 = binw - b_vert - edges - edges2 - b_hor
+    kernel = np.ones((2,2),np.uint8)
     img3 = cv.bitwise_not(img3)
+    img3 = cv.morphologyEx(img3, cv.MORPH_OPEN, kernel)
+    # img3 = cv.morphologyEx(img3, cv.MORPH_OPEN, kernel)
     cv.imshow("minused", img3)
     # img3 = bw - b_vert - edges
     # cv.imshow("minused2", img3)
-    cv.imwrite('minused.png',img3)
+    cv.imwrite('minused.jpg',img3)
 
     cv.waitKey(0)
     cv.destroyAllWindows() 
