@@ -84,6 +84,7 @@ def imageProcessWords(imagePath):
 	tokenizedWords=list(set(tokenizeUsingSpaces(alltext)))
 	return tokenizedWords
 
-mst.listForAll('test ')
-
-all('test')
+mst.listForAll(sys.argv[1])
+all(sys.argv[1])
+print(True)
+sys.stdout.flush()
