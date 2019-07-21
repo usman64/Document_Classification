@@ -10,6 +10,8 @@ from os.path import isfile, join
 import numpy as np
 import makestoplist as mst
 
+pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+
 def all(folderPath):
 	# mst.listForAll(folderPath)
 	allImages = [f for f in listdir(folderPath) if isfile(join(folderPath, f)) and '.png' in f and 'Template' not in f and '.txt' not in f]
