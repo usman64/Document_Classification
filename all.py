@@ -2,6 +2,7 @@ import pytesseract
 import re
 import os
 import cv2
+import sys
 import pandas as pd
 import shutil
 import measure_img_similarity3 as mis
@@ -83,36 +84,8 @@ def imageProcessWords(imagePath):
 	alltext = alltext.lower()
 	tokenizedWords=list(set(tokenizeUsingSpaces(alltext)))
 	return tokenizedWords
-# imageName  = input("Enter  File  Path: ") #image to read and compare with template
-# folderPath = input("Enter Folder Path: ")
-# myclass = classifier(imageName, folderPath)
-# print(myclass)
 
-# docPath = myclass + '.txt'
-# im_gray = cv2.imread(imageName, 0)
-# (thresh, im_bw) = cv2.threshold(im_gray, 75, 255, cv2.THRESH_OTSU)
-# ret2,im_binary = cv2.threshold(im_gray, thresh, 255, cv2.THRESH_BINARY)
-# alltext = pytesseract.image_to_string(im_binary,config= '--psm 12')
-
-# alltext= alltext.lower()
-# print(alltext)
-# tokenizedWords=tokenizeUsingSpaces(alltext)
-# print(tokenizedWords)
-# stoplist = getStopWords(docPath)
-# wordsFiltered = []
-# for w in tokenizedWords:
-#     if w not in stoplist and len(w)>2:
-#         wordsFiltered.append(w)
-# wordsFiltered=list(set(wordsFiltered))
-# fileName=imageName.split(os.sep)[-1]
-# storeKeyWords(fileName, wordsFiltered)
-
-# df = pd.DataFrame(wordsFiltered)
-# df = df.reset_index()
-# df = df[0].value_counts().to_frame().reset_index()
-# df.rename(columns={0:'Count'},inplace=True)
-# print(df)
-
-mst.listForAll('test')
-
-all('test')
+mst.listForAll(sys.argv[1])
+all(sys.argv[1])
+print(True)
+sys.stdout.flush()
