@@ -2,6 +2,7 @@ import pytesseract
 import re
 import os
 import cv2
+import sys
 from PIL import Image
 from nltk.tokenize import word_tokenize
 import pandas as pd
