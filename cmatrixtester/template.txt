@@ -1,0 +1,3 @@
+wkdir/UnsortedScannedPng2/rowTemplate.png	rowTemplate.png	UnsortedScannedPng2
+wkdir/UnsortedScannedPng2/rosTemplate.png	rosTemplate.png	UnsortedScannedPng2
+wkdir/UnsortedScannedPng2/rogeTemplate.png	rogeTemplate.png	UnsortedScannedPng2

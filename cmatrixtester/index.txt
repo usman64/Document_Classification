@@ -1,0 +1,55 @@
+wkdir/UnsortedScannedPng2/roge/5ROGE.png	5ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/9ROGE.png	9ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/3ROGE.png	3ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/16ROGE.png	16ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/10ROGE.png	10ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/17ROGE.png	17ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/13ROGE.png	13ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/11ROGE.png	11ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/14ROGE.png	14ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/8ROGE.png	8ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/4ROGE.png	4ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/12ROGE.png	12ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/2ROGE.png	2ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/6ROGE.png	6ROGE.png	roge
+wkdir/UnsortedScannedPng2/roge/7ROGE.png	7ROGE.png	roge
+wkdir/UnsortedScannedPng2/row/RO-W forms_7.png	RO-W forms_7.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_3.png	RO-W forms_3.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_2.png	RO-W forms_2.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_10.png	RO-W forms_10.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_11.png	RO-W forms_11.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_6.png	RO-W forms_6.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_4.png	RO-W forms_4.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_9.png	RO-W forms_9.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_8.png	RO-W forms_8.png	row
+wkdir/UnsortedScannedPng2/row/RO-W forms_5.png	RO-W forms_5.png	row
+wkdir/UnsortedScannedPng2/ros/3ros.png	3ros.png	ros
+wkdir/UnsortedScannedPng2/ros/8ros.png	8ros.png	ros
+wkdir/UnsortedScannedPng2/ros/10.png	10.png	ros
+wkdir/UnsortedScannedPng2/ros/12.png	12.png	ros
+wkdir/UnsortedScannedPng2/ros/15.png	15.png	ros
+wkdir/UnsortedScannedPng2/ros/7.png	7.png	ros
+wkdir/UnsortedScannedPng2/ros/5.png	5.png	ros
+wkdir/UnsortedScannedPng2/ros/11ros.png	11ros.png	ros
+wkdir/UnsortedScannedPng2/ros/2ros.png	2ros.png	ros
+wkdir/UnsortedScannedPng2/ros/5ros.png	5ros.png	ros
+wkdir/UnsortedScannedPng2/ros/14ros.png	14ros.png	ros
+wkdir/UnsortedScannedPng2/ros/1.png	1.png	ros
+wkdir/UnsortedScannedPng2/ros/6.png	6.png	ros
+wkdir/UnsortedScannedPng2/ros/17ros.png	17ros.png	ros
+wkdir/UnsortedScannedPng2/ros/2.png	2.png	ros
+wkdir/UnsortedScannedPng2/ros/12ros.png	12ros.png	ros
+wkdir/UnsortedScannedPng2/ros/13.png	13.png	ros
+wkdir/UnsortedScannedPng2/ros/3.png	3.png	ros
+wkdir/UnsortedScannedPng2/ros/11.png	11.png	ros
+wkdir/UnsortedScannedPng2/ros/10ros.png	10ros.png	ros
+wkdir/UnsortedScannedPng2/ros/9.png	9.png	ros
+wkdir/UnsortedScannedPng2/ros/9ros.png	9ros.png	ros
+wkdir/UnsortedScannedPng2/ros/14.png	14.png	ros
+wkdir/UnsortedScannedPng2/ros/4.png	4.png	ros
+wkdir/UnsortedScannedPng2/ros/16ros.png	16ros.png	ros
+wkdir/UnsortedScannedPng2/ros/6ros.png	6ros.png	ros
+wkdir/UnsortedScannedPng2/ros/13ros.png	13ros.png	ros
+wkdir/UnsortedScannedPng2/ros/8.png	8.png	ros
+wkdir/UnsortedScannedPng2/ros/7ros.png	7ros.png	ros
+wkdir/UnsortedScannedPng2/ros/4ros.png	4ros.png	ros
